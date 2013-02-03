@@ -1,30 +1,100 @@
 #hangman ruby script
 
+#---------------------------------------------------------------------
 #hangman class
 class Hangman
-	def initialize(a_word)
-		@a_word = a_word
+	attr_writer :max_mistakes			#number of mistakes the player can make
+	attr_reader :win					#if the player wins the game @win becomes true
+	attr_reader :finished				#indicates if the game has finished
+	attr_reader :player_word			#string of _ and letters
+	
+	def initialize
+		@try = 0						#tries used by the player
+		@player_word = ""				
+		@player_inputs = Array.new()	#inputs made by the player, index is number of try
+		@finished = false				
+		@player_mistakes = 0			#mistakes made by the player
+		@win = false					
+	end	
+	
+	def set_word(word)
+		@word = word					#word, the player is searching for
+		process_state()
 	end
 	
-	def hasLetter(a_char)
+	def process_state					#incapsulates the game logic
+		@player_word = ""
 		
-		return true
+		win = true;
+		
+		for i in @word.chars do					#compare inputs with the searched word
+			found = false
+			@player_inputs.each {|x|
+				if i == x
+					found = true
+				end
+			}	
+			
+			if found
+				@player_word = @player_word + " " + i
+			else
+				@player_word = @player_word + " _"
+				win = false;
+			end
+		end
+		
+		#player won the game
+		if win
+			@win = true
+			@finished = true
+		end
 	end
 	
-	def printResult
+	def try_char(input_char)
+		@player_inputs[@try] = input_char[0]	#if a string was given, just take the first char
+		@try += 1
+		process_state()
+		
+		#check for mistakes
+		if !@word.include? input_char[0]
+			@player_mistakes += 1
+		end
+		
+		#game end condition
+		if @player_mistakes >= @max_mistakes
+			@finished = true
+		end
+	end
 	
+	def mistakes_left	
+		return @max_mistakes - @player_mistakes
 	end
 end
+#---------------------------------------------------------------------
+
+#init hangman
+hangman = Hangman.new()
+hangman.max_mistakes = 6
+hangman.set_word("webentwicklung")
+
+puts("\nWelcome to Hangman! \n\n")
+puts(hangman.player_word)
 
 #main loop
-puts("Welcome to Hangman!")
-
-inputs = Array.new(10)
-for i in inputs do
-	i = gets()
+while hangman.finished != true do
+	puts("Please type a letter (#{hangman.mistakes_left()} tries left)")
+	
+	input_char = gets()
+	hangman.try_char(input_char)
+	
+	puts(hangman.player_word)
+	puts("\n\n")
 end
 
-for i in inputs do
-	puts("a: #{i}")
+#end game
+if hangman.win
+	puts("Congratulations! You won!")
+else
+	puts("You lost!")
 end
-
+#---------------------------------------------------------------------
