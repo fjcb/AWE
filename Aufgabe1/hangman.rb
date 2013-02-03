@@ -4,30 +4,30 @@
 #hangman class
 class Hangman
 	attr_writer :max_mistakes			#number of mistakes the player can make
-	attr_reader :win					#if the player wins the game @win becomes true
+	attr_reader :win				#if the player wins the game @win becomes true
 	attr_reader :finished				#indicates if the game has finished
 	attr_reader :player_word			#string of _ and letters
 	
 	def initialize
-		@try = 0						#tries used by the player
+		@try = 0				#tries used by the player
 		@player_word = ""				
-		@player_inputs = Array.new()	#inputs made by the player, index is number of try
+		@player_inputs = Array.new()		#inputs made by the player, index is number of try
 		@finished = false				
 		@player_mistakes = 0			#mistakes made by the player
 		@win = false					
 	end	
 	
 	def set_word(word)
-		@word = word					#word, the player is searching for
+		@word = word				#word, the player is searching for
 		process_state()
 	end
 	
-	def process_state					#incapsulates the game logic
+	def process_state				#incapsulates the game logic
 		@player_word = ""
 		
 		win = true;
 		
-		for i in @word.chars do					#compare inputs with the searched word
+		for i in @word.chars do			#compare inputs with the searched word
 			found = false
 			@player_inputs.each {|x|
 				if i == x
