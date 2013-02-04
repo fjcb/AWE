@@ -1,7 +1,3 @@
-#hangman ruby script
-
-#---------------------------------------------------------------------
-#hangman class
 class Hangman
 	attr_writer :max_mistakes			#number of mistakes the player can make
 	attr_reader :win					#if the player wins the game @win becomes true
@@ -11,10 +7,10 @@ class Hangman
 	def initialize
 		@try = 0						#tries used by the player
 		@player_word = ""				
-		@player_inputs = Array.new()	#inputs made by the player, index is number of try
+		@player_inputs = Array.new 		#inputs made by the player, index is number of try
 		@finished = false				
 		@player_mistakes = 0			#mistakes made by the player
-		@win = false					
+		@win = false			
 	end	
 	
 	def set_word(word)
@@ -27,7 +23,7 @@ class Hangman
 		
 		win = true;
 		
-		for i in @word.chars do					#compare inputs with the searched word
+		for i in @word.chars do			#compare inputs with the searched word
 			found = false
 			@player_inputs.each {|x|
 				if i == x
@@ -38,8 +34,13 @@ class Hangman
 			if found
 				@player_word = @player_word + " " + i
 			else
-				@player_word = @player_word + " _"
-				win = false;
+				if i == " "
+					@player_word = @player_word + "  "
+				else 
+					@player_word = @player_word + " _"	
+					win = false;		#player wins if no "_" has to be placed
+				end
+				
 			end
 		end
 		
@@ -70,31 +71,3 @@ class Hangman
 		return @max_mistakes - @player_mistakes
 	end
 end
-#---------------------------------------------------------------------
-
-#init hangman
-hangman = Hangman.new()
-hangman.max_mistakes = 6
-hangman.set_word("webentwicklung")
-
-puts("\nWelcome to Hangman! \n\n")
-puts(hangman.player_word)
-
-#main loop
-while hangman.finished != true do
-	puts("Please type a letter (#{hangman.mistakes_left()} tries left)")
-	
-	input_char = gets()
-	hangman.try_char(input_char)
-	
-	puts(hangman.player_word)
-	puts("\n\n")
-end
-
-#end game
-if hangman.win
-	puts("Congratulations! You won!")
-else
-	puts("You lost!")
-end
-#---------------------------------------------------------------------
