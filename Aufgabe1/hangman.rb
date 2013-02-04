@@ -10,6 +10,7 @@ class Hangman
 		@finished = false				
 		@player_mistakes = 0			#mistakes made by the player
 		@win = false			
+		@player_inputs = Array.new
 	end	
 	
 	def set_word(word)
