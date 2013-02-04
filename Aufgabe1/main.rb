@@ -29,7 +29,9 @@ end
 
 #end game
 if hangman.win
+	Gallows.show_gallows(7)
 	puts("Congratulations! You won!")
 else
 	puts("You lost!")
+	Gallows.show_gallows(0)
 end
