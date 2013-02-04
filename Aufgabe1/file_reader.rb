@@ -3,7 +3,7 @@ class File_Reader
 		@words = Array.new
 		
 		begin
-			file = File.new(file_name, 'r')
+			file = File.new(file_name, "r:UTF-8")
 			while (line = file.gets)
 				@words.push(line.sub("\n", ""))
 			end

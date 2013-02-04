@@ -17,5 +17,3 @@ Kunde
 -ofun
 Änderungsmanagement
 Pizzabäcker
-Langzeitstudent
-Langeweile

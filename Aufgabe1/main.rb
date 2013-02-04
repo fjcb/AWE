@@ -20,7 +20,7 @@ while hangman.finished != true do
 	Gallows.show_gallows(hangman.mistakes_left)
 	puts("Please type a letter (#{hangman.mistakes_left} tries left)")
 	
-	input_char = gets()
+	input_char = gets().encode("UTF-8")
 	hangman.try_char(input_char)
 	
 	puts(hangman.player_word)
