@@ -26,7 +26,7 @@ class Hangman
 		for i in @word.chars do			#compare inputs with the searched word
 			found = false
 			@player_inputs.each {|x|
-				if i == x
+				if i.downcase == x.downcase
 					found = true
 				end
 			}	
