@@ -59,10 +59,10 @@ class Gallows
 		elsif tries_left == 7
 			puts " _______        \n"
 			puts " |/    '        \n"
-			puts " |		      \n"
-			puts " |	     _C_, \n"
+			puts " |              \n"
+			puts " |         _C_, \n"
 			puts " |        ' U   \n"
-			puts "/ \\	    ,/ \  \n"
+			puts "/ \\      ,/ \  \n"
 			puts "=========-___'_ \n"
 		end
 	end
