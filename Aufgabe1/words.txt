@@ -1,7 +1,17 @@
-webentwicklung
-computer
-ruby on rails
-agil
-ruby
-repository
-git
+Fachgespräch
+JavaScript
+Ajax
+Exzellenzinitiative
+Brainstorming
+Computer
+Anforderungsanalyse
+REST als Architekturprinzip
+Versionskontrolle
+Metaprogrammierung
+Repository
+Ruby on Rails
+Webentwicklung
+Testgetriebene Entwicklung
+Intelligenzquotient
+Kunde
+-ofun
