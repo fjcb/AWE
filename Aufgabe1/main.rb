@@ -35,8 +35,8 @@ end
 
 puts " ______ \n"
 puts " |/    | \n"
-puts " |     o \n"
-puts " |    /U\\ \n"
+puts " |    _o_, \n"
+puts " |   ' U   \n"
 puts " |    / \\ \n"
 puts "/ \\ \n"
 puts "=========\n"
