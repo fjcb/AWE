@@ -2,6 +2,7 @@
 
 load 'hangman.rb'
 load 'file_reader.rb'
+load 'gallows.rb'
 
 #init file_reader
 reader = File_Reader.new("words.txt")
@@ -16,7 +17,8 @@ puts(hangman.player_word)
 
 #main loop
 while hangman.finished != true do
-	puts("Please type a letter (#{hangman.mistakes_left()} tries left)")
+	Gallows.show_gallows(hangman.mistakes_left)
+	puts("Please type a letter (#{hangman.mistakes_left} tries left)")
 	
 	input_char = gets()
 	hangman.try_char(input_char)
@@ -31,12 +33,3 @@ if hangman.win
 else
 	puts("You lost!")
 end
-
-
-puts " ______ \n"
-puts " |/    | \n"
-puts " |     o \n"
-puts " |    /U\\ \n"
-puts " |    / \\ \n"
-puts "/ \\ \n"
-puts "=========\n"
