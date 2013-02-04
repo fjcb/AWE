@@ -1,24 +1,28 @@
 class Hangman
 	attr_writer :max_mistakes			#number of mistakes the player can make
-	attr_reader :win					#if the player wins the game @win becomes true
+	attr_reader :win				#if the player wins the game @win becomes true
 	attr_reader :finished				#indicates if the game has finished
 	attr_reader :player_word			#string of _ and letters
 	
 	def initialize
-		@try = 0						#tries used by the player
+		@try = 0				#tries used by the player
 		@player_word = ""				
+<<<<<<< HEAD
 		@player_inputs = Array.new 		#inputs made by the player, index is number of try
+=======
+		@player_inputs = Array.new()		#inputs made by the player, index is number of try
+>>>>>>> 56f8222d500b124cd1418fee16a632db681f0ec1
 		@finished = false				
 		@player_mistakes = 0			#mistakes made by the player
 		@win = false			
 	end	
 	
 	def set_word(word)
-		@word = word					#word, the player is searching for
+		@word = word				#word, the player is searching for
 		process_state()
 	end
 	
-	def process_state					#incapsulates the game logic
+	def process_state				#incapsulates the game logic
 		@player_word = ""
 		
 		win = true;
@@ -70,4 +74,36 @@ class Hangman
 	def mistakes_left	
 		return @max_mistakes - @player_mistakes
 	end
+<<<<<<< HEAD
 end
+=======
+end
+#---------------------------------------------------------------------
+
+#init hangman
+hangman = Hangman.new()
+hangman.max_mistakes = 6
+hangman.set_word("webentwicklung")
+
+puts("\nWelcome to Hangman! \n\n")
+puts(hangman.player_word)
+
+#main loop
+while hangman.finished != true do
+	puts("Please type a letter (#{hangman.mistakes_left()} tries left)")
+	
+	input_char = gets()
+	hangman.try_char(input_char)
+	
+	puts(hangman.player_word)
+	puts("\n\n")
+end
+
+#end game
+if hangman.win
+	puts("Congratulations! You won!")
+else
+	puts("You lost!")
+end
+#---------------------------------------------------------------------
+>>>>>>> 56f8222d500b124cd1418fee16a632db681f0ec1
