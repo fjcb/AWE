@@ -32,13 +32,11 @@ else
 	puts("You lost!")
 end
 
-"
- ______
- |/    |
- |     o
- |    /U\
- |    / \
-/ \
-=========
 
-"
+puts " ______ \n"
+puts " |/    | \n"
+puts " |     o \n"
+puts " |    /U\\ \n"
+puts " |    / \\ \n"
+puts "/ \\ \n"
+puts "=========\n"
