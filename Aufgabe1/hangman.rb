@@ -1,3 +1,5 @@
+#Hangman class
+#jacob & kuhfß 2013
 class Hangman
 	attr_writer :max_mistakes			#number of mistakes the player can make
 	attr_reader :win				#if the player wins the game @win becomes true

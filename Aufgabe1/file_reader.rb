@@ -1,3 +1,5 @@
+#File_Reader class
+#jacob & kuhfß 2013
 class File_Reader	
 	def initialize(file_name)
 		@words = Array.new

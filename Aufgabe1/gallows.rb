@@ -1,3 +1,5 @@
+#Gallows class
+#jacob & kuhfß 2013
 class Gallows
 	def self.show_gallows(tries_left = 0)
 		if tries_left == 0

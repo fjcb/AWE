@@ -1,4 +1,5 @@
 #hangman ruby script
+#jacob & kuhfß 2013
 
 load 'hangman.rb'
 load 'file_reader.rb'
