@@ -7,11 +7,6 @@ class Hangman
 	def initialize
 		@try = 0				#tries used by the player
 		@player_word = ""				
-<<<<<<< HEAD
-		@player_inputs = Array.new 		#inputs made by the player, index is number of try
-=======
-		@player_inputs = Array.new()		#inputs made by the player, index is number of try
->>>>>>> 56f8222d500b124cd1418fee16a632db681f0ec1
 		@finished = false				
 		@player_mistakes = 0			#mistakes made by the player
 		@win = false			
@@ -74,36 +69,4 @@ class Hangman
 	def mistakes_left	
 		return @max_mistakes - @player_mistakes
 	end
-<<<<<<< HEAD
 end
-=======
-end
-#---------------------------------------------------------------------
-
-#init hangman
-hangman = Hangman.new()
-hangman.max_mistakes = 6
-hangman.set_word("webentwicklung")
-
-puts("\nWelcome to Hangman! \n\n")
-puts(hangman.player_word)
-
-#main loop
-while hangman.finished != true do
-	puts("Please type a letter (#{hangman.mistakes_left()} tries left)")
-	
-	input_char = gets()
-	hangman.try_char(input_char)
-	
-	puts(hangman.player_word)
-	puts("\n\n")
-end
-
-#end game
-if hangman.win
-	puts("Congratulations! You won!")
-else
-	puts("You lost!")
-end
-#---------------------------------------------------------------------
->>>>>>> 56f8222d500b124cd1418fee16a632db681f0ec1
